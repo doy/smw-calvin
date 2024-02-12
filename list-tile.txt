@@ -1,1 +1,2 @@
-
+Graphics/GFX02.bin:
+  0E Graphics/GFX05.bin:0C:2
