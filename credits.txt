@@ -1,0 +1,22 @@
+* 32x32 Player Tilemap Patch 1.5 by ExE Boss, Ladida, lx5
+	* https://www.smwcentral.net/?p=section&a=details&id=26000
+* Disable Layer 3 water current by ShadowMistressYuko
+	* https://www.smwcentral.net/?p=viewthread&t=105534
+* ON/OFF Cooldown by leod
+	* https://www.smwcentral.net/?p=section&a=details&id=20317
+* Start + Select Advanced by MarioFanGamer
+	* https://www.smwcentral.net/?p=section&a=details&id=23369
+* Walljump/Note Block Glitch Fix v1.6 by lolcats439
+	* https://www.smwcentral.net/?p=section&a=details&id=19932
+* Modern Birdo by TickTockClock
+	* https://www.smwcentral.net/?p=section&a=details&id=25098
+* VLDC 13 Baserom by AmperSam
+	* https://www.smwcentral.net/?p=viewthread&t=121242
+* Invisible Question Mark Blocks by BlueToad
+	* https://www.smwcentral.net/?p=section&a=details&id=28852
+* Autosave + Bring Up Save Prompt by pressing Select by Alcaro, Erik, westslasher2
+	* https://www.smwcentral.net/?p=section&a=details&id=24706
+* Donkey Kong Country - Aquatic Ambiance by ggamer77
+	* https://www.smwcentral.net/?p=section&a=details&id=8820
+* Custom Goal Point Question Sphere by imamelia
+	* https://www.smwcentral.net/?p=section&a=details&id=16215
