@@ -4,6 +4,8 @@ ROM := $(NAME).smc
 PATCH := $(NAME).bps
 BASEROM := baserom/baserom.smc
 BASEPATCH := baserom/baserom.bps
+OVERWORLDROM := overworld/overworld.smc
+OVERWORLDPATCH := overworld/overworld.bps
 SMW := baserom/smw.smc
 
 ASAR := $(shell test -d asar && find asar -maxdepth 1 -type f | sed 's/ /\\ /g')
@@ -22,6 +24,12 @@ rom: $(ROM)
 patch: $(PATCH)
 .PHONY: patch
 
+overworld-patch: $(OVERWORLDPATCH)
+.PHONY: overworld-patch
+
+overworld-rom: $(OVERWORLDROM)
+.PHONY: overworld-rom
+
 run: $(ROM)
 	snes9x -paddev1 /dev/input/js0 $<
 .PHONY: run
@@ -29,12 +37,12 @@ run: $(ROM)
 # not depending on LEVELS or MAP16 because those are typically saved from
 # within lunar magic itself, so we want to avoid "save rom" -> "save level
 # file" -> "make run" causing a rebuild
-$(ROM): $(BASEROM) $(ASAR) $(BLOCKS) $(GAMEMODE) $(MUSIC) $(SAMPLES) $(SPRITES) list-addmusick.txt list-gps.txt list-pixi.txt list-tile.txt list-uberasm.txt
+$(ROM): $(BASEROM) $(OVERWORLDROM) $(ASAR) $(BLOCKS) $(GAMEMODE) $(MUSIC) $(SAMPLES) $(SPRITES) list-addmusick.txt list-gps.txt list-pixi.txt list-tile.txt list-uberasm.txt
 	@if [ -e '$@' ]; then cp $@ $@.bak; fi
 	@cp $< $@
 	@mkdir -p sysLMRestore
 	@cp baserom/smw.smc sysLMRestore/smwOrig.smc
-	@bin/lunar-magic-cli -TransferOverworld $@ $<
+	@bin/lunar-magic-cli -TransferOverworld $@ overworld/overworld.smc
 	@for file in $(ASAR); do bin/asar "$$file" $@; done
 	@echo | bin/uberasm list-uberasm.txt
 	@bin/lunar-magic-cli -ExportGFX $@
@@ -54,8 +62,14 @@ $(ROM): $(BASEROM) $(ASAR) $(BLOCKS) $(GAMEMODE) $(MUSIC) $(SAMPLES) $(SPRITES) 
 $(PATCH): $(SMW) $(ROM)
 	@bin/flips $^ $@
 
+$(OVERWORLDPATCH): $(SMW) $(OVERWORLDROM)
+	@bin/flips $^ $@
+
 $(BASEROM): $(SMW) $(wildcard $(BASEPATCH))
 	@if [ -e "$(BASEPATCH)" ]; then bin/flips --apply $(BASEPATCH) $(SMW) $@; else cp $(SMW) $@; fi
+
+$(OVERWORLDROM): $(SMW) $(wildcard $(OVERWORLDPATCH))
+	@if [ -e "$(OVERWORLDPATCH)" ]; then bin/flips --apply $(OVERWORLDPATCH) $(SMW) $@; else cp $(SMW) $@; fi
 
 .gitignore: Makefile
 	@rm -f $@
@@ -73,7 +87,7 @@ $(BASEROM): $(SMW) $(wildcard $(BASEPATCH))
 	@echo /$(NAME).msc >> $@
 
 clean:
-	@rm -rf $(BASEROM) $(ROM) $(PATCH) $(NAME).{extmod,mw2,mwt,s16,ssc,dsc,msc} Graphics sysLMRestore tmp-level.mwl
+	@rm -rf $(BASEROM) $(ROM) $(PATCH) $(NAME).{extmod,mw2,mwt,s16,ssc,dsc,msc} Graphics sysLMRestore overworld/sysLMRestore $(OVERWORLDROM) tmp-level.mwl
 .PHONY: clean
 
 get-name:
