@@ -1,5 +1,6 @@
 gamemode:
         14 onoff_gamemode14.asm
+        0E autosave_gamemode0e.asm
 macrolib: other/macro_library.asm
 statusbar: other/status_code.asm
 global: other/global_code.asm
