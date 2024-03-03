@@ -32,7 +32,7 @@ endif
 ;;;;;;;;;
 ; DO NOT EDIT THOSE BELOW!!!
 
-!PlayerGFX_size #= select(equal(readfile1("PlayerGFX.bin",$10000,$FF),readfile1("PlayerGFX.bin",$10000,$00)), select(equal(readfile1("PlayerGFX.bin",$20000,$FF),readfile1("PlayerGFX.bin",$20000,$00)),$30000,$20000),$10000)
+!PlayerGFX_size #= select(equal(readfile1("inc/PlayerGFX.bin",$10000,$FF),readfile1("inc/PlayerGFX.bin",$10000,$00)), select(equal(readfile1("inc/PlayerGFX.bin",$20000,$FF),readfile1("inc/PlayerGFX.bin",$20000,$00)),$30000,$20000),$10000)
 assert !PlayerGFX_size >= 0, "PlayerGFX.bin not found"
 assert !PlayerGFX_size <= $20000, "PlayerGFX.bin is too big, must be at most 128KiB"
 
@@ -278,7 +278,7 @@ reset freespaceuse
 
 !PlayerGFX_freespaceuse = freespaceuse
 if !PlayerGFX_size <= $10000
-	incbin "PlayerGFX.bin" -> PlayerGFX
+	incbin "inc/PlayerGFX.bin" -> PlayerGFX
 else
 	org (!Freedata-$8008)|!bank
 		db $53,$54,$41,$52	;\ Asar complains when `db "STAR"` is encoutered
@@ -286,7 +286,7 @@ else
 		dw $0000	;/ when Asar only features are used
 	org !Freedata|!bank
 		PlayerGFX:
-		incbin "PlayerGFX.bin" -> !Freedata|!bank
+		incbin "inc/PlayerGFX.bin" -> !Freedata|!bank
 	org (!Freedata+$20000)|!bank
 		db $53,$54,$41,$52
 		dw clamp(!PlayerGFX_size-$10009,0,$FFF7)
