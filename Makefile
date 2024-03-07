@@ -70,6 +70,7 @@ $(BASEROM): $(SMW) $(wildcard $(BASEPATCH))
 
 $(OVERWORLDROM): $(SMW) $(wildcard $(OVERWORLDPATCH))
 	@if [ -e "$(OVERWORLDPATCH)" ]; then bin/flips --apply $(OVERWORLDPATCH) $(SMW) $@; else cp $(SMW) $@; fi
+	@bin/addmusick $@
 
 .gitignore: Makefile
 	@rm -f $@
@@ -87,7 +88,7 @@ $(OVERWORLDROM): $(SMW) $(wildcard $(OVERWORLDPATCH))
 	@echo /$(NAME).msc >> $@
 
 clean:
-	@rm -rf $(BASEROM) $(ROM) $(PATCH) $(NAME).{extmod,mw2,mwt,s16,ssc,dsc,msc} Graphics sysLMRestore overworld/sysLMRestore $(OVERWORLDROM) tmp-level.mwl
+	@rm -rf $(BASEROM) $(ROM) $(PATCH) $(NAME).{extmod,mw2,mwt,s16,ssc,dsc,msc} Graphics sysLMRestore overworld/sysLMRestore $(OVERWORLDROM) overworld/overworld.msc tmp-level.mwl
 .PHONY: clean
 
 get-name:

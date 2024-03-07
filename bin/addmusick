@@ -29,7 +29,7 @@ if [ -z "$($DOCKER images -q "$IMAGE")" ]; then
   echo "$DOCKERFILE" | $DOCKER build -t "$IMAGE" -f - .
 fi
 
-NAME="$(make -s get-name)"
+NAME="${1%.smc}"
 $DOCKER run --rm -i \
   -v "$PWD":/workdir/ \
   "$IMAGE" \
@@ -43,6 +43,6 @@ $DOCKER run --rm -i \
     echo >> Addmusic_list.txt
     cat /workdir/list-addmusick.txt >> Addmusic_list.txt
     AddmusicK \"\$@\"
-    cp -f '${NAME}.msc' '${NAME}.smc' /workdir
+    cp -f '${NAME}.msc' '${NAME}.smc' '/workdir/$(dirname "${NAME}")'
     rm -f '/workdir/${NAME}.smc~'
   " addmusick "$@"
