@@ -1,0 +1,187 @@
+#amk 2
+
+#option TempoImmunity
+
+#spc
+{
+    #title   "Victory!!"
+    #game    "Super Mario RPG"
+    #author  "Yoko Shimomura"
+    #comment "Ported by KevinM"
+}
+
+#path "smrpg-victory"
+
+#samples
+{
+    "../default/00 SMW @0.brr"
+    "../default/01 SMW @1.brr"
+    "../default/02 SMW @2.brr"
+    "../default/03 SMW @3.brr"
+    "../default/04 SMW @4.brr"
+    "../EMPTY.brr"
+    "../default/06 SMW @22.brr"
+    "../default/07 SMW @5.brr"
+    "../default/08 SMW @6.brr"
+    "../EMPTY.brr"
+    "../optimized/0A SMW @9.brr"
+    "../default/0B SMW @10.brr"
+    "../default/0C SMW @13.brr"
+    "../EMPTY.brr"
+    "../optimized/0E SMW @29.brr"
+    "../optimized/0F SMW @21.brr"
+    "../EMPTY.brr"
+    "../EMPTY.brr"
+    "../optimized/12 SMW @15.brr"
+    "../optimized/13 SMW Thunder.brr"
+
+    "Flute.brr"
+    "Tuba.brr"
+    "Synth Bass.brr"
+    "Snare Roll.brr"
+    "Snare.brr"
+    "Kick.brr"
+    "Marimba.brr"
+    "Orchestra Hit.brr"
+    "Closed Hi-Hat.brr"
+    "Closing Hi-Hat.brr"
+    "Tambourine.brr"
+}
+
+#instruments
+{
+    "Flute.brr"             $FF $E0 $00 $02 $3D ; @30
+    "Tuba.brr"              $FF $E0 $00 $02 $B3 ; @31
+    "Synth Bass.brr"        $FF $F2 $00 $03 $3E ; @32
+    "Snare Roll.brr"        $FF $E0 $00 $01 $03 ; @33
+    "Snare.brr"             $FF $E0 $00 $02 $8D ; @34
+    "Kick.brr"              $FF $E0 $00 $02 $8D ; @35
+    "Marimba.brr"           $CF $95 $00 $04 $3D ; @36
+    "Orchestra Hit.brr"     $FF $E0 $00 $09 $92 ; @37
+    "Closed Hi-Hat.brr"     $FF $E0 $00 $02 $8D ; @38
+    "Closing Hi-Hat.brr"    $FF $E0 $00 $02 $8D ; @39
+    "Tambourine.brr"        $FF $E0 $00 $02 $8D ; @40
+}
+
+;==================;
+; Volume  /  Tempo ;
+;==================;
+   w200       t62
+
+;==================;
+;       Echo       ;
+;==================;
+$F0
+$EF $39 $0C $0C
+$F1 $06 $6F $01
+
+; Original volumes:
+; - Global volume w255
+; - amplify = $FA $03 $FB
+"amplify = "
+
+;==================;
+;    Channel #0    ;
+;==================;
+#0 $F4 $02 amplify
+@30 v174 y10 o4 l16
+g > c < b a g f e d v165 c4 r4 /
+
+@31 v160 y11
+[f+ g+ r f+ g+ r f+ r b8 a+ r g+ r f+ r]
+e f+ r e f+ r e r c+8 d+ r e r g+ r
+* < a+8
+
+@30 v143 y10
+b > c d e f g a g a b > c < b > c d
+
+;==================;
+;    Channel #1    ;
+;==================;
+#1 amplify
+@32 v198 y10 o4 l16
+d8 r4 a8 > d r8. < d4 /
+
+v206
+[d8. a a r d=60 d a r d8]
+e8. b b r e=60 e b r e8
+*
+< a8. a > e r < a=60 a > e r < a8
+
+;==================;
+;    Channel #2    ;
+;==================;
+#2 amplify
+@33 v149 y10 o5
+$E8 $30 $58 b4^16 $E8 $54 $BC ^4.. r8.
+@34 v154 g32 v165 g32 /
+
+(20)[
+ @35 v196 g4 @34 $F4 $03 v188 g8 $F4 $03
+ @35 v196 g4 g16 g16
+]
+(21)[@34 $F4 $03 v188 g4 $F4 $03]
+(20)
+@34 $F4 $03 v188 g8 $F4 $03 v165 g16 $F4 $03 v172 g16 $F4 $03
+(20)
+(21)
+(20)
+@34 $F4 $03 v188 g8 $F4 $03 @35 g16 @34 $F4 $03 v165 g32 $F4 $03 ^32
+
+;==================;
+;    Channel #3    ;
+;==================;
+#3 amplify
+@36 v135 y7 o4 l16
+g a+ a+ g+ g f d+ < a+ a+4
+@37 v144 > a+4 /
+
+@36 v112
+[r8 a+ a+]4 >
+[[r8 c c]]4 <
+*4 >
+[[r8 d d]]4 <
+
+;==================;
+;    Channel #4    ;
+;==================;
+#4 amplify
+@36 v135 y13 o4 l16
+d+ g g f d+ < a+ a+ g+ g4
+@37 a+4 /
+
+@36 v112 >
+[r8 g g]4
+[[r8 g+ g+]]4
+*4
+[[r8 a+ a+]]4
+
+;==================;
+;    Channel #5    ;
+;==================;
+#5 amplify
+r1 /
+@31 v158 y9 o4 l16
+[d+ e r d+ e r d+ r f+8 f+ r e r d+ r]
+c+ d+ r c+ d+ r c+ r < a+8 b r > c+ r e r
+v144 * < f+8 r=60
+
+@30 v106 y10 > e v120 f e f g v134 a g a b
+
+;==================;
+;    Channel #6    ;
+;==================;
+#6 amplify
+r1 /
+y20 o5 l16
+[[@38 v76 [g8 g g]3 g g g @39 v86 g]]4
+
+;==================;
+;    Channel #7    ;
+;==================;
+#7 amplify
+r1 /
+@40 y3 o5 l16 [
+ [[$F4 $03 v109 g8 $F4 $03 v96 g v104 g]]3
+ g32 v109 g32 v96 g v104 g v109 g
+]4
