@@ -2,3 +2,4 @@
 2A  53 Underworld Forest.txt
 2B  bloodytears.txt
 2C  oot_gerudo.txt
+2D  Wily.txt
