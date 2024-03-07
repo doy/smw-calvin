@@ -3,3 +3,4 @@
 2B  bloodytears.txt
 2C  oot_gerudo.txt
 2D  Wily.txt
+2E  Besaid.txt

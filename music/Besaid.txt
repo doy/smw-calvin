@@ -1,0 +1,271 @@
+#amk 2
+
+#spc
+{
+    #title   "Besaid Island"
+    #game    "Final Fantasy X"
+    #author  "Masashi Hamauzu"
+    #comment "Ported by KevinM"
+}
+
+#instruments
+{
+    @13 $8e $ec $b8 $03 $00 ; @30 e. piano
+    @0  $8e $00 $b8 $06 $00 ; @31 sine
+    @0  $8f $00 $b8 $06 $00 ; @32 sine
+    @13 $8f $4c $b8 $03 $00 ; @33 piano
+    @1  $8f $ea $b8 $03 $00 ; @34 saw
+    @1  $8f $e8 $b8 $03 $00 ; @35 saw 2
+    @1  $87 $a0 $b8 $06 $00 ; @36 strings
+    @1  $87 $c0 $b8 $06 $00 ; @37 strings
+    @10 $00 $00 $69 $08 $21 ; @38 snare
+    n1f $ff $f9 $7f $00 $00 ; @39 hi-hat
+    n1f $ff $fe $7f $00 $00 ; @40 hi-hat
+    @0  $8e $ec $b8 $03 $00 ; @41 e. piano
+}
+
+;==================;
+; Volume  /  Tempo ;
+;==================;
+   w180       t45
+
+;==================;
+;       Echo       ;
+;==================;
+$ef $ff $16 $ea
+$f1 $08 $5d $00
+
+;==================;
+;      Macros      ;
+;==================;
+"EPiano  = @30 v250 y10 q7f h0 $e5$12$09$20"
+"Sine    = @31 y10 q7b h0"
+"Sine2   = @32 v175 y9 h0"
+"Sine3   = @32 q38 h0"
+"Piano   = @33 q7d h0 $e5$00$12$16"
+"Saw     = @34 h0"
+"Saw2    = @35 h0"
+"Str     = @36 v250 h0"
+"Str2    = @37 v250 h0"
+"Kick    = @21 o4 h4"
+"Snare   = @38 o3 h-1"
+"Slap    = @14 v238 y10 h0 o1"
+"Hat1    = @40 v102 y12 h0 o4"
+"Hat2    = @39 v102 y12 h0 o4"
+"EPianoB = @41 v180 y10 h0"
+
+;==================;
+;    Channel #0    ;
+;==================;
+#0 $f4$02
+(99)[r2]8
+
+Sine v30 o2 l16
+$e8$c0$56 (00)[g > d e f+ a d e f+ a e > d < d e f+ g f+ <]
+$e8$c0$8e (00)
+$e8$c0$c7 (00)
+$e8$c0$ff (00)
+
+/ 
+
+v255
+(00)32
+
+v30
+(00)4
+
+$e8$c0$56 (00)
+$e8$c0$8e (00)
+$e8$c0$c7 (00)
+$e8$c0$ff (00)
+
+q5c
+(03)[g > d e f+ a d e f+ a e > d < d e f+ g f+ <]2
+(01)[f+ > d e f+ a d e f+ a d > d < d e f+ a f+ <]2
+(03)2
+b > d e f+ a d e f+ a e > d < d e f+ g f+ <
+(02)[a > d e f+ a d e f+ a e > d < d e f+ g f+ <]
+(03)2
+(01)2
+(03)2
+(02)2
+
+;==================;
+;    Channel #1    ;
+;==================;
+#1
+(99)16
+
+/
+
+v255 y10 o1 q7e p0,32,64 $fa$00$02
+[[Saw g2. $f6$16$f4 ^4]]40
+
+o1 q7f
+[Saw2 g1. $f6$16$f2 ^2
+Saw2 f+1. $f6$16$f2 ^2
+Saw2 g1. $f6$16$f2 ^2
+Saw2] b1 a1
+* a1. $f6$16$f2 ^4
+
+Hat2 $fa$00$00 q7f c4
+
+;==================;
+;    Channel #2    ;
+;==================;
+#2
+EPiano o2 q7d
+(21)[g2. > a4 g1 < g1 > g1 <]2
+
+/
+
+EPiano o2 q7f
+(22)[g2. > a4 g1 < g1 > g1 <]2
+(23)[g2. > a4 g1 <]16
+
+Sine2 o4 l16 $e5$00$00$00
+[[r2 q3f a q36 a q3e > d q35 d q34 d q33 d q32 d q31 d <]]8
+
+(20)[q3e < g > d q3f e q3e f+ q3f a d e q3e f+ q3f a q3d e q3e > d < q3f d q3e e q3d f+ q3f g q3e f+]2
+[q3e < f+ > d q3f e q3e f+ q3f a d e q3e f+ q3f a q3d d q3e > d < q3f d q3e e q3d f+ q3f a q3e f+]2
+(20)2
+[q3e < a > d q3f e q3e f+ q3f a d e q3e f+ q3f a q3d e q3e > d < q3f d q3e e q3d f+ q3f g q3e f+]2
+
+;==================;
+;    Channel #3    ;
+;==================;
+#3
+(99)16
+
+/
+
+Piano o4
+(30)[v253 y10 a2. > b4 v254 a2. v255 f+4 v248 e2. v254 d4 < a1 v253 a2. > b4 v254 a2. v255 f+4 v248 e2. v254 d4 v248 f+1 <]2
+(31)[v239 y11 o3 g4^48 >> v243 y8 d4..^24 v248 y10 a4 v236 f+1 e2. v237 d4 < y12 a1]2
+(30)
+(31)2
+(30)2
+
+;==================;
+;    Channel #4    ;
+;==================;
+#4
+EPianoB o2 q7d
+(21)2
+
+/
+
+EPianoB o2 q7f
+(22)2
+
+Str q77 o4 p0,18,24 $e5$00$08$16
+d1 < e1 b1 e1 > c+1 d1 e1 f+1
+$ed$06$a6 a1^1^1^1^4
+
+Piano v236 o4 $df
+f+1^1^1^4
+
+v255 $f4$03 $e5$00$00$00
+Snare $ed$7f$b4 q6f $e8$1e$80 [<a32]5 $e8$1e$ff *5 Snare q7e c16 $f4$03 q7f c8
+(40)[Kick $f4$03 c4 $f4$03 Snare c4]3
+(41)[Kick $f4$03 q7d c16 $f4$03 Snare c8. q7f c4]
+(40)3
+Kick q7f $f4$03 c8 Kick c8 $f4$03 Snare c16 q7d c8.
+(40)3
+(41)
+(40)3
+Kick $f4$03 q7f c8 Kick c8 $f4$03 Snare c4
+
+(60)[Piano v236 y10 o4 $df
+r4 f+1^1^1^2. $e5$00$00$00]
+
+Sine3 v30 y11 o5 l16
+$e8$c0$56 (42)[f+ f+ f+ f+ r f+ f+ r f+ r f+ r r4]
+$e8$c0$8e (43)[f+ f+ f+ f+ r f+ f+ r f+ r f+ r f f f f]
+$e8$c0$c7 (42)
+$e8$c0$ff (43)
+
+Str2 q78 y11 o3 $e5$00$10$16
+f+1^1 e1^1 f+1^1 f+1 f+1
+f+1^1 e1^1 f+1^1 e1^1
+
+;==================;
+;    Channel #5    ;
+;==================;
+#5
+(99)16
+
+/
+
+(72)[
+$e5$00$00$00 $df
+Slap q7f $f4$03 g16
+Hat1 q4a c16 q4c c16 q4d c16 $f4$03
+Hat2 q7f c8
+Slap q2f $f4$03 g8 g8 g8 $f4$03
+Hat2 q7f c4
+]8
+
+Str q77 y12 o3 p0,18,24 $e5$00$1c$10
+a1^1^1^1 a1^1 > c+1 d1
+
+(50)[Piano v236 o4 $df
+r=44 y12 b1^1^2.^48 y8 f+1]2
+
+(72)8
+
+(50)2
+
+Str2 y9 o3 $e5$00$1c$0c
+q79 d1^1^1^1^1^1^1 q78 c+1
+q79 d1^1^1^1^1^1^1^1
+
+;==================;
+;    Channel #6    ;
+;==================;
+#6
+(99)16
+
+/
+
+(99)16
+
+(72)8
+
+(60)
+
+EPianoB o2 q7f
+(23)8
+
+Sine3 v30 y9 o4 l16
+$e8$c0$56 (70)[b b b b r b b r b r b r r4]
+$e8$c0$8e (71)[b b b b r b b r b r b r a+ a+ a+ a+]
+$e8$c0$c7 (70)
+$e8$c0$ff (71)
+
+Str2 q78 y12 o2 $e5$00$0c$1c
+[[b1^1 a1^1 b1^1^1^1]]2
+
+;==================;
+;    Channel #7    ;
+;==================;
+#7
+(99)16
+
+/
+
+(99)16
+
+Str q77 y8 o3 p0,18,24 $e5$00$0c$1c
+f+1^1^1^1 e1 f+1 e1 f+1
+
+EPianoB o2 q7f $e5$00$00$00
+(23)2
+
+(99)32
+
+(60)
+
+Str2 q78 y8 o2 $e5$00$16$0e
+f+1^1^1^1^1^1 a1 g1
+f+1^1^1^1^1^1 g1^1
