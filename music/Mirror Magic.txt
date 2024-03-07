@@ -1,0 +1,451 @@
+#amk 2
+
+#path "Mirror Magic"
+
+#spc
+{
+	#title "Mirror Magic"
+	#game "Celeste"
+	#author "2 Mello, Lena Raine"
+	#comment "Mirror Temple's B-Side."
+	#length "3:51"
+}
+
+#samples
+{
+	"../optimized/00 SMW @0.brr"
+	"../optimized/01 SMW @1.brr"
+	"../optimized/02 SMW @2.brr"
+	"../optimized/03 SMW @3.brr"
+	"../optimized/04 SMW @4.brr"
+	"../EMPTY.brr"
+	"../optimized/06 SMW @22.brr"
+	"../optimized/07 SMW @5.brr"
+	"../optimized/08 SMW @6.brr"
+	"../EMPTY.brr"
+	"../optimized/0A SMW @9.brr"
+	"../optimized/0B SMW @10.brr"
+	"../optimized/0C SMW @13.brr"
+	"../EMPTY.brr"
+	"../optimized/0E SMW @29.brr"
+	"../EMPTY.brr"
+	"../optimized/10 SMW @12.brr"
+	"../EMPTY.brr"
+	"../optimized/12 SMW @15.brr"
+	"../EMPTY.brr"
+	"major_inv.brr"
+	"minor_inv.brr"
+	"brass.brr"
+	"pianoalto2.brr"
+	"pianomedio.brr"
+	"pianobajo.brr"
+	"bass.brr"
+	"hat.brr"
+	"kick.brr"
+	"snare3.brr"
+	"vibrcelesta.brr"
+	"trombone.brr"
+	"pizz.brr"
+	"sine.brr"
+	"crash.brr"
+	"ride.brr"
+	"string.brr"
+	"tom.brr"
+}
+
+#instruments {
+	"brass.brr" $8E $A8 $B8 $07 $00			;@30
+	"bass.brr" $FF $EC $B8 $04 $00			;@31
+	"pianomedio.brr" $FF $F4 $B8 $0A $0A 		;@32
+	"pizz.brr" $FE $F6 $00 $04 $00			;@33
+	"string.brr" $F9 $E0 $b8 $02 $A6		;@34
+	"trombone.brr" $FA $E3 $B8 $02 $00		;@35
+	"string.brr" $F9 $E0 $b8 $0A $98		;@36
+	"tom.brr" $FE $F8 $00 $08 $D4			;@37
+	"major_inv.brr" $FA $E0 $00 $03 $D4		;@38
+	"minor_inv.brr" $FA $E0 $00 $03 $D4		;@39
+	"vibrcelesta.brr" $ff $f5 $B8 $06 $0a		;@40
+	;"pianoalto.brr" $FF $F4 $B8 $04 $08		;@41
+	"pianoalto2.brr" $FF $F4 $B8 $01 $B5		;@41
+	"pianobajo.brr" $FF $F4 $B8 $0F $50		;@42
+	"pianobajo.brr" $F6 $EE $B8 $0F $50		;@43
+	"hat.brr" $CE $B9 $B8 $06 $80			;@44
+	"hat.brr" $FE $FA $B8 $06 $80			;@45
+	"kick.brr" $00 $00 $7F $03 $00			;@46
+	"snare3.brr" $ff $f9 $00 $07 $a0		;@47
+	"sine.brr" $FF $F6 $B8 $01 $00			;@48
+	"crash.brr" $8f $10 $00 $05 $b0			;@49
+	"crash.brr" $81 $10 $00 $05 $b0			;@50
+	"ride.brr" $df $32 $7f $07 $80			;@51
+}
+
+(!100)[@30]
+(!101)[@35]
+(!102)[@40]
+(!103)[@32]
+(!104)[@36]
+(!500)[$FA $01 $B4]
+(!501)[$FA $01 $B6]
+(!502)[$FA $01 $B8]
+"OFF = (!100,0)"
+
+"BRASS = (!100,-1) (!502,3) v205"
+"STRING = (!104,-1) v155"
+"TROMBONE = (!101,-1) (!501,3) p16,10,20 v185"
+"VIBRA = (!102,-1) (!500,3)"
+"REVERSE = v220 y10 @50"
+"CRASH = v240 y10 @49"
+"RIDE = y8 v230 @51"
+"STR = @34 $ED $79 $E0 p15,15,30 v120"
+
+;$F6 $0C $00
+;$F6 $1C $00
+
+t40 w190 $F4 $02
+
+
+#0 /
+
+(1)[@32 v170
+[[o2 @42 c8>> @41 q7b g8> q7d d8 q7c d+8 q7f a+8 q7d d8 q7e d+8 q7d a+8]]2
+q7f [[o1 @42 b8>>> q7b @41 g8 q7d >d8 q7c d+8 q7f g8 q7d d8 q7e d+8 q7d g8]]2
+q7f [[o1 @42 a+8>>> @41 q7b g8 q7d >d8 q7c d+8 q7f a+8 q7d d8 q7e d+8 q7d a+8]]2
+q7f [[o1 @42 a8>>> @41 q7b g8 q7d >d8 q7c d+8 q7f g8 q7d d8 q7e d+8 q7d g8]]2
+q7f [[o1 @42 g+8>>> @41 q7b g8 q7d >d8 q7c d+8 q7f g8 q7d d8 q7e d+8 q7d g8]]2
+q7f [[o1 @42 g8>>> @41 q7b g8 q7d >d8 q7c d+8 q7f g8 q7d d8 q7e d+8 q7d g8]]2
+q7f [[o1 @42 f8>>> @41 q7b g8 q7d >d8 q7c d+8 q7f g8 q7d d8 q7e d+8 q7d g8]]2
+q7f o1 @42 g8>>> @41 q7b f8 q7d >d8 q7c d+8 q7f g8 q7d d8 q7e d+8 q7d g8]
+q7f o1 @42 g8>>> @41 f8 v190 $ED $7F $F3 b4f8^12f12^12f8
+(1)
+o1g8>>>f8>d8d+8g8d8d+8g8
+STR y7
+[[o4 g1^1
+f1^1
+g1^1
+g1^1
+f1^1
+g1^1
+f1^1
+g1^1]]2
+o4 y10 c1^1
+<b1^1
+a+1^1
+a1^1
+g+1^1
+a+1^1
+a1^1
+b1^1
+$DF y11 OFF @33 o4 v155
+(3)[ [[<c8g8>d8d+8a+8d8d+8a+8]]2
+[[<<b8>g8>d8d+8g8d8d+8g8]]2
+[[<<a+8>g8>d8d+8a+8d8d+8a+8]]2
+[[<<a8>g8>d8d+8g8d8d+8g8]]2
+[[<<g+8>g8>d8d+8g8d8d+8g8]]2
+[[<<g8>g8>d8d+8g8d8d+8g8]]2
+[[<<f8>g8>d8d+8g8d8d+8g8]]2
+<<g8>f8>d8d+8g8d8d+8g8]
+y10 v190
+@41 g8 $ED $7F $F6 ^8
+@41 >d8 $ED $7F $F6 ^8
+@41 <b8 $ED $7F $F6 ^8
+@41 >d8 $ED $7F $F6 ^8
+
+
+
+#1 / @31 
+
+o2 v255
+[[ [c8r12<a+12r12>c4.r12<g24a+12g24
+>c8r12<a+12r12>c4.r12<g24a+12g24
+f8r12f12r12g4.r12g24a+12g24
+f8r12g12r12f8..r32f24e24d+24d4
+d+8r12d+12r12d+4.r12d+24g12a+24
+d+8r12d+12r12d+4.r12d+24g12a+24
+g8r12f12r12g4.r12f24g12a24
+a8r12g12r12a4.r12a24d+12g24
+g+8r12g12r12g+4.r12d+24f12d+24
+g+8r12g12r12g+4.r12d+24f12d+24
+g8r12f12r12g4.r12d+24f12d+24
+g8r12f12r12g4.r12d+24f12d+24
+f8r12d+12r12c4.r12c24d+12c24
+f8r12d+12r12c4.r12c24d+12c24
+g8r12f12r12g4.r12d+24f12d+24]
+g8r12b12r12>d2^8 ]]5
+*
+ v170 o3
+@40 g8 $ED $7F $F2 ^8
+@40 >d8 $ED $7F $F2 ^8
+@40 <b8 $ED $7F $F2 ^8
+@40 >d8 $ED $7F $F2 ^8
+
+
+
+
+#2 /
+
+r12o3[ (!103,-1) (!500,3) v150 y9
+[[q7c g24r12g24r12 q7b g24r12 q7c g24r12g24r12 q7f g24r12 q7b g24r12 q7e g24r12]]2
+q7b f24r12 q7a f24r12f24r12 q7b f24r12 q7c f24r12 q7f g24r12 q7c f24r12 q7b f24
+r12 q7b f24r12 q7a f24r12 q7b f24r12 q7a f24r12f24r12f24r12 q7c f24r12 q7e f24
+[[r12q7a d+24r12 q7f d+24r12 q7a d+24r12 q7f d+24r12 q7e d+24r12 q7a d+24r12 q7e d+24r12 q7b d+24]]2
+[[r12 q7a c24r12 q7d c24r12 q7b c24r12 q7c c24r12 q7f c24r12 q7a c24r12 q7b c24r12 q7f c24]]2
+r12 q7c c24r12 q7d c24r12 v165 q7f c24r12 q7b c24r12 q7f c24r12 v150 q7e c24r12 q7c d24r12 q7d d24
+r12 q7c d+24r12 v165 q7f d+24r12 q7b d+24r12 q7f d+24r12 v150 f24r12 q7e f24r12g24r12g24
+r12 q7c d24r12 q7d d24r12 q7c d24r12 v160 q7f d24r12 v150 q7e d24r12 q7d d24r12 q7f d+24r12 q7d d24
+r12 q7c d24r12 q7d d24r12 q7c d24r12 v160 q7f d24r12 q7c d24r12 q7f d24r12c24r12 v150 d24
+r12 q7d c24r12 q7c c24r12 q7f c24r12 q7c c24r12 q7f d24r12 q7c d24r12 q7b d24r12 q7e d24
+r12 q7c d+24r12 q7b d+24r12 q7c d+24r12 q7e d+24r12f24r12 q7d f24r12f+24r12 q7f f+24
+r12 q7c g24r12g24r12 v165 q7f g24r12g24r12 q7c g24r12 q7f g24r12 q7c g24r12g24]
+r12b24r12b24 OFF @41 v190 q7f $ED $7F $F3 o5 d8^8<b8^12b12^12>d8 ^12
+*
+OFF REVERSE
+o4 c1
+STR
+[[o4 c1^1
+<b1^1
+a+1^1
+a1^1
+g+1^1
+a+1^1
+a1^1
+b1^1]]2
+o4 y13
+d+1^1
+d1^1
+d+1^1
+d+1^1
+c1^1
+d1^1
+c1^1
+d1^1
+y7
+d+1^1
+d1^1
+d1^1
+c1^1
+c1^1
+<a+1^1
+a1^1
+b1
+$ED $7F $F2 ^1
+
+
+
+#3  /
+
+(30)[v190 o4 y12 q7d @45c12 q72 c24 q7c c12 q72 c24
+q7f @44c+12 q72 @45 c24 q7c c12 q72 c24]31
+q7d @45 c12 q72 c24
+q7f y10 v255 $FA $03 $60 @46 (31)[c8 q77 @47 y11 $ED $7F $E0 <e12e24> y10 q7f @46 c8]
+[@46 c6^=7c=9 q7d @47 c8 q7f @46 c4c8 q7d @47 c6^=7 q7f @46 c=9]15
+@46 c6^24c24 q7d @47 c8 q7f @46 c4 (31)
+*47
+@46 c6^24c24 q7d @47 c8 q7f @46 c4 (31)
+(30)30
+r1
+
+
+
+
+
+#4 / y10 BRASS
+
+r1. $DF
+(40)[o4c16^96<a+24^96>c8d+12f16r16 $F4 $01 f+64^96g2 $F4 $01 ^4
+r64g12>c24r12< $F4 $01 f+24
+g24f32d+24 $F4 $01 ^96 f16r16d+12c24r12<a+24
+>c12r24d+16r16d12<a+16r16g2r8
+>c24d+12r24]
+
+$EE $C0 f+16r32 $EE $80 f+16r48 $EE $40 f+16r96
+$EE $00 f+16r32 $EE $C0 f16r32 $EE $80 f16
+$EE $40 f16r48 $EE $00 f16r24 $EE $C0 e16 $EE $00
+$F4 $01 f+32g24d+32 $F4 $01 ^32r16
+$F4 $01 f+32g32d+32 $F4 $01 ^32 r24r96
+$F4 $01 f+48g32 $F4 $01 ^32 >c2...r16
+
+(41)[$F4 $01 <d+24 f16 $F4 $01 ^32.r16^64f8
+d+16 $F4 $01 f48f+48g6r48 $F4 $01 ^48 <a+12>c24
+d+12 $F4 $01 f+48g24d+16f2 $F4 $01 ^12. r24
+$F4 $01 <a+12>c48 $F4 $01 ^48 d+12 $F4 $01 a48a+48 $F4 $01 ^48r16f2 r24
+a+16r16g+16r16g12d+24r12 $F4 $01 <b48>c12^48
+<a+2 $F4 $01 ^6>c12d+12f12
+$F4 $01 c+48d16 $F4 $01 ^16r16 $F4 $01 d48d+12^48d24<a+8 $F4 $01 ^8
+>c16r16d16r48c24r12d16
+r16c2^24c12c+24d12c24r12g24
+r12c2^24 v145 $E8 $0C $CD f+8f12d+24r16 $F4 $01 d+32e32
+f2. $F4 $01 ^8 r12d+24
+f16.r16.f16.r24d+24^96 $F4 $01 f+24
+g16 $F4 $01 ^16 r24.^192] f=81 <r6r8>
+
+v155 y13
+OFF VIBRA
+q7d c=10d=14d+=10
+(42)[ [[q7f d=14 q7d d+=10 q7b d=14 q78 d+=10 q76 d=14 q74 d+=10 q73 d=14 q72 d+16r4r16 q7d c=10d=14d+=10]]2
+q7f g=14 q7d d+=10 q7b d=14 q78 d+=10 q76 d=14 q74 d+=10 q73 d=14 q72 d+16r4r16 q7d c=10d=14d+=10
+q7f d=14 q7c d+=10 q7d f=14 q7b <a+=10 q7c >d+=14 q79 <a+=10 q7b >d=14 q76 <a+16r4r16>
+[[q7d <a+=10>d=14d+=10 q7f a+=14 q7d d+=10 q7b d=14 q78 d+=10 q76 d=14 q74 d+=10 q73 d=14 q72 d+16r4r16
+q7d <a+=10>d=14d+=10 q7f d=14 q7d d+=10 q7b d=14 q78 d+=10 q76 d=14 q74 d+=10 q7d f16r4.r96
+q7d <a+=10>d=14d+=10 q7f g=14 q7d d+=10 q7b d=14 q78 d+=10 q76 d=14 q74 d+=10 q73 d=14 q72 d+16r4r16
+q7d <a+=10>d=14d+=10 q7f d=14 q7c d+=10 q7d f=14 q7b <a+=10 q7c >d+=14 q79 <a+=10 q7b >d=14 q76 <a+16r4r16>]]2
+q7d <a+=10>d=14d+=10 q7f a+=14 q7d d+=10 q7b d=14 q78 d+=10 q76 d=14 q74 d+=10 q73 d=14 q72 d+16r4r16
+q7d <a+=10>d=14d+=10 q7f d=14 q7d d+=10 q7b d=14 q78 d+=10 q76 d=14 q74 d+=10 q73 d=14 q72 d+=10]
+OFF
+@36
+y10 < q7c
+<b2>b2
+>d2 STRING g2 q7f
+c1.
+d2
+<b2 $FA $01 $A8 ^2
+b2 $DD $00 $12 g ^4^16 $FA $01 $AE ^8.
+>e2 $DD $00 $12 g ^1
+f4d+4
+d1
+c2. $FA $01 $AD ^4
+<g+1
+b4>c4c+4 $DD $00 $10 d+ d2
+<g2. $FA $01 $AD ^4
+>c4d+4 q7e g4
+q7d g+2 $DD $00 $18 >c ^2<
+q7e f2. q7f d+4
+d1
+<g2. $FA $01 $AD ^4 >>
+OFF
+TROMBONE
+d2c4<g4
+a+2g+4d+4
+$F4 $01 f48g12 $F4 $01 ^48f1^4.
+r2
+>c2<a+4d+4
+$F4 $01 f3^8 q7d f+24 q7f g8 $F4 $01^8 d+4
+$F4 $01 g+24a1 $F4 $01 ^2.
+r6r24
+g+2b4>c4
+$F4 $01 d24d+4.. $F4 $01 ^48f4g4
+d2..c8
+<b2..r8
+>c2<g4f4
+d+4d4<b4>c4
+d+1
+d1
+c1^4r4 $DF
+BRASS
+(40)
+o4
+g8r12>c8
+r24 $F4 $01 d+12 f32 $F4 $01 ^32 r24^96d+16r=10
+d8<a+16r16g6r48 $F4 $01 b12>c2 $F4 $01 ^4.. r16
+(41) < f=75
+OFF o3 STR y13
+a+1^1
+b1^1
+a+1^1
+a1^1
+g+1^1
+g1^1
+f1^1
+g1
+$ED $7F $F2 ^1
+
+
+
+
+
+
+#5 /
+
+[[o4
+v125 @39 c1^1<
+v140 @38 g1^1
+@39 g1^1
+v145 @38 f1^1
+v140 g+1^1
+@39 g1^1
+v145 @38 f1^1
+g1^1]]2
+STR y13
+o4
+[[d+1^1
+d1^1
+d+1^1
+d+1^1
+d1^1
+d1^1
+c1^1
+d1^1]]2
+y7
+[[g1^1]]4
+d+1^1
+g1^1
+f1^1
+g1^1
+y10
+<g1^1
+g1^1
+g1^1
+f1^1
+d+1^1
+d1^1
+c1^1
+d1
+$ED $7F $F2 ^1
+
+
+
+#6 / v165 y10
+
+@43 o1
+b+1
+b+1
+b1
+b1
+a+1
+a+1
+a1
+a1
+g+1
+g+1
+g1
+g1
+f1
+f1
+g1
+g2^8
+(61)[v245 @37
+o3 y9,0,1 d8 y8,0,1 a12g+24 y7,0,1 c-8 y10]
+(30)31 q7f o4 c8 (61)
+(60)[CRASH c2 RIDE q78 c8 q7b c8 q7a c8 q79 c8]
+[@51 q7a c8 q79 c8 q7b c8 q7c c8 q7f c8 q7b c8 q7a c8 q79 c8]14
+@51 q77 c8 q75 c8 q7f
+REVERSE c2.
+(60)
+*30
+@51 q7a c8 q79 c8 q7b c8 q7c c8 q7f c8 
+(61)
+@48 y8 v190
+(3)
+r1
+
+
+
+#7 /
+
+[[r2]]33
+r16 r96 
+VIBRA v135 y7,0,1 $EE $0D
+q7d c=10d=14d+=10
+(42)
+r4 OFF q7f
+@36 y10 q7b $EE $00 <
+g2b2>d2 OFF $DF q7f
+(1) o1g8>>>f8>d8d+8g8d8d+8g8	; \ IF I PLACE THIS INSIDE A SUPER LOOP IT JUST
+(1) o1g8>>>f8>d8d+8g8d8d+8g8	; / WONT FUCKING WORK FOR SOME REASON so i just pasted it twice
+o4 CRASH q7d c2
+v155 y12
+VIBRA
+(42)
+[[r4r16 q7d <a+=10>d=14d+=10 q7f g=14 q7d d+=10 q7b d=14 q78 d+=10 q76 d=14 q74 d+=10 q73 d=14 q72 d+16]]2
+OFF q7d y10
+CRASH $ED $7F $EE c1
+[[r2]]100

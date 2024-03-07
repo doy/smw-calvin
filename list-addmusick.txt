@@ -5,3 +5,4 @@
 2D  Wily.txt
 2E  Besaid.txt
 2F  111 Victory!! (sampled).txt
+30  Mirror Magic.txt

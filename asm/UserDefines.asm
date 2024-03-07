@@ -253,7 +253,7 @@ includeonce
 !SwitchPalace	= $12
 !Welcome	= $13
 !RescueEgg	= $14
-!Title		= $15
+!Title		= $30
 !VoBAppears	= $16
 !Overworld	= $17
 !YoshisIsland	= $18
