@@ -13,7 +13,7 @@
 !Autosave = !yes		;If enabled the game will automatically save everytime the player moves AND enters the overworld, if you insert the other gamemode patch.
 !SkipPrompt = !no		;If enabled the game will automatically save once the select button is pressed. 
 
-!SkipPromptSound = $05		;\ Sound effect that plays if the skip prompt option is enabled. $00 is reccomended if you have enabled Auto-saving.
+!SkipPromptSound = $00		;\ Sound effect that plays if the skip prompt option is enabled. $00 is reccomended if you have enabled Auto-saving.
 !SkipPromptBank = $1DF9|!addr		;/ use this link to find which sound effects to use. https://www.smwcentral.net/?p=viewthread&t=6665
  
 !no = 0			;\ Don't change these.
